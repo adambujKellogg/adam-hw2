@@ -141,25 +141,25 @@ roles["character_name"]="Bruce Wayne"
 roles.save
 
 roles2 = Role.new
-roles["movie_id"]=movies["id"]
+roles2["movie_id"]=movies["id"]
 roles2["actor_id"]=actors2["id"]
 roles2["character_name"]="Alfred"
 roles2.save
 
 roles3 = Role.new
-roles["movie_id"]=movies["id"]
+roles3["movie_id"]=movies["id"]
 roles3["actor_id"]=actors3["id"]
 roles3["character_name"]="Ra's Al Ghul"
 roles3.save
 
 roles4 = Role.new
-roles["movie_id"]=movies["id"]
+roles4["movie_id"]=movies["id"]
 roles4["actor_id"]=actors4["id"]
 roles4["character_name"]="Rachel Dawes"
 roles4.save
 
 roles5 = Role.new
-roles["movie_id"]=movies["id"]
+roles5["movie_id"]=movies["id"]
 roles5["actor_id"]=actors5["id"]
 roles5["character_name"]="Commissioner Gordon"
 roles5.save
@@ -229,25 +229,25 @@ roles11["character_name"]="Bruce Wayne"
 roles11.save
 
 roles12 = Role.new
-roles12["movie_id"]=movies["id"]
+roles12["movie_id"]=movies3["id"]
 roles12["actor_id"]=actors5["id"]
 roles12["character_name"]="Commissioner Gordon"
 roles12.save
 
 roles13 = Role.new
-roles13["movie_id"]=movies2["id"]
+roles13["movie_id"]=movies3["id"]
 roles13["actor_id"]=actors9["id"]
 roles13["character_name"]="Bane"
 roles13.save
 
 roles14 = Role.new
-roles14["movie_id"]=movies2["id"]
+roles14["movie_id"]=movies3["id"]
 roles14["actor_id"]=actors10["id"]
 roles14["character_name"]="John Blake"
 roles14.save
 
 roles15 = Role.new
-roles15["movie_id"]=movies2["id"]
+roles15["movie_id"]=movies3["id"]
 roles15["actor_id"]=actors11["id"]
 roles15["character_name"]="Selina Kyle"
 roles15.save
@@ -288,5 +288,5 @@ for role in roles
     actor = Actor.find_by({"id" => role["actor_id"]})
     ##    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
 ## My intention was to run the above line but for some unknown reason movie["title"] throws an error. I haven't been able to debug this with others. 
-    puts "#{actor["name"]} #{role["character_name"]}"
+    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
   end
