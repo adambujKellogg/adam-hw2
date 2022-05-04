@@ -78,22 +78,7 @@
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-# Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
 
-# Query the movies data and loop through the results to display the movies output.
-# TODO!
-
-# Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
-
-# Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
 Studio.destroy_all
 Movie.destroy_all
 Actor.destroy_all
@@ -151,35 +136,30 @@ actors5.save
 ##Assign roles for first film
 roles = Role.new
 roles["movie_id"]=movies["id"]
-# actor = Actor.find_by({ "name" => "Christian Bale" })
 roles["actor_id"]=actors["id"]
 roles["character_name"]="Bruce Wayne"
 roles.save
 
 roles2 = Role.new
 roles["movie_id"]=movies["id"]
-# actor2 = Actor.find_by({ "name" => "Michael Caine" })
 roles2["actor_id"]=actors2["id"]
 roles2["character_name"]="Alfred"
 roles2.save
 
 roles3 = Role.new
 roles["movie_id"]=movies["id"]
-# actor3 = Actor.find_by({ "name" => "Liam Neeson" })
 roles3["actor_id"]=actors3["id"]
 roles3["character_name"]="Ra's Al Ghul"
 roles3.save
 
 roles4 = Role.new
 roles["movie_id"]=movies["id"]
-# actor4 = Actor.find_by({ "name" => "Katie Holmes" })
 roles4["actor_id"]=actors4["id"]
 roles4["character_name"]="Rachel Dawes"
 roles4.save
 
 roles5 = Role.new
 roles["movie_id"]=movies["id"]
-# actor5 = Actor.find_by({ "name" => "Gary Oldman" })
 roles5["actor_id"]=actors5["id"]
 roles5["character_name"]="Commissioner Gordon"
 roles5.save
@@ -200,35 +180,30 @@ actors8.save
 
 roles6 = Role.new
 roles6["movie_id"]=movies2["id"]
-# actor3 = Actor.find_by({ "name" => "Christian Bale" })
 roles6["actor_id"]=actors["id"]
 roles6["character_name"]="Bruce Wayne"
 roles6.save
 
 roles7 = Role.new
 roles7["movie_id"]=movies2["id"]
-# actor4 = Actor.find_by({ "name" => "Heath Ledger" })
 roles7["actor_id"]=actors6["id"]
 roles7["character_name"]="Joker"
 roles7.save
 
 roles8 = Role.new
 roles8["movie_id"]=movies2["id"]
-# actor5 = Actor.find_by({ "name" => "Aaron Eckhart" })
 roles8["actor_id"]=actors7["id"]
 roles8["character_name"]="Harvey Dent"
 roles8.save
 
 roles9 = Role.new
 roles9["movie_id"]=movies2["id"]
-actor6 = Actor.find_by({ "name" => "Michael Caine" })
 roles9["actor_id"]=actors2["id"]
 roles9["character_name"]="Alfred"
 roles9.save
 
 roles10 = Role.new
 roles10["movie_id"]=movies2["id"]
-# actor7 = Actor.find_by({ "name" => "Maggie Gyllenhaal" })
 roles10["actor_id"]=actors8["id"]
 roles10["character_name"]="Rachel Dawes"
 roles10.save
@@ -249,75 +224,35 @@ actors11.save
 
 roles11 = Role.new
 roles11["movie_id"]=movies3["id"]
-# actor3 = Actor.find_by({ "name" => "Christian Bale" })
 roles11["actor_id"]=actors["id"]
 roles11["character_name"]="Bruce Wayne"
 roles11.save
 
 roles12 = Role.new
 roles12["movie_id"]=movies["id"]
-# actor4 = Actor.find_by({ "name" => "Heath Ledger" })
 roles12["actor_id"]=actors5["id"]
 roles12["character_name"]="Commissioner Gordon"
 roles12.save
 
 roles13 = Role.new
 roles13["movie_id"]=movies2["id"]
-# actor5 = Actor.find_by({ "name" => "Aaron Eckhart" })
 roles13["actor_id"]=actors9["id"]
 roles13["character_name"]="Bane"
 roles13.save
 
 roles14 = Role.new
 roles14["movie_id"]=movies2["id"]
-# actor6 = Actor.find_by({ "name" => "Michael Caine" })
 roles14["actor_id"]=actors10["id"]
 roles14["character_name"]="John Blake"
 roles14.save
 
 roles15 = Role.new
 roles15["movie_id"]=movies2["id"]
-# actor7 = Actor.find_by({ "name" => "Maggie Gyllenhaal" })
 roles15["actor_id"]=actors11["id"]
 roles15["character_name"]="Selina Kyle"
 roles15.save
 
 
-
-# # - Insert and read contact data for companies in the database
-
-# # 1. insert new rows in the contacts table with relationship to a company
-
-# # first query to find the row in companies for Apple
-# apple = Company.find_by({ "name" => "Apple" })
-
-# contact = Contact.new
-# contact["first_name"] = "Tim"
-# contact["last_name"] = "Cook"
-# contact["email"] = "tim@apple.com"
-# contact["company_id"] = apple["id"]
-# contact.save
-
-# contact = Contact.new
-# contact["first_name"] = "Craig"
-# contact["last_name"] = "Federighi"
-# contact["email"] = "craig@apple.com"
-# contact["company_id"] = apple["id"]
-# contact.save
-
-# amazon = Company.find_by({ "name" => "Amazon" })
-
-# contact = Contact.new
-# contact["first_name"] = "Jeff"
-# contact["last_name"] = "Bezos"
-# contact["email"] = "jeff@amazon.com"
-# contact["company_id"] = amazon["id"]
-# contact.save
-
-puts "There are #{Studio.all.count} studios"
-puts "There are #{Movie.all.count} movies"
-puts "There are #{Actor.all.count} actors"
-puts "There are #{Role.all.count} roles"
 
 puts "Movies"
 puts "======"
@@ -351,5 +286,7 @@ for role in roles
     # read each contact row's first_name and last_name columns
     movie = Movie.find_by({"id" => role["movie_id"]})
     actor = Actor.find_by({"id" => role["actor_id"]})
-    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
+    ##    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
+## My intention was to run the above line but for some unknown reason movie["title"] throws an error. I haven't been able to debug this with others. 
+    puts "#{actor["name"]} #{role["character_name"]}"
   end
