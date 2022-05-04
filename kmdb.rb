@@ -286,7 +286,5 @@ for role in roles
     # read each contact row's first_name and last_name columns
     movie = Movie.find_by({"id" => role["movie_id"]})
     actor = Actor.find_by({"id" => role["actor_id"]})
-    ##    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
-## My intention was to run the above line but for some unknown reason movie["title"] throws an error. I haven't been able to debug this with others. 
     puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
   end
