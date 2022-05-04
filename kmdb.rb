@@ -346,9 +346,9 @@ roles = Role.all
 for role in roles
     # read each contact row's first_name and last_name columns
     movie = Movie.find_by({"id" => role["movie_id"]})
-    # actor = Actor.find_by({"id" => role["actor_id"]})
+    actor = Actor.find_by({"id" => role["actor_id"]})
     puts "#{movie["title"]} #{actor["actor_name"]} #{role["movie_role"]}"
-
+##
     # actor_id = role["actor_id"]
     # actor_record = Actor.find_by({ "id" => actor_id })
     # actor_name = actor_record["name"]
